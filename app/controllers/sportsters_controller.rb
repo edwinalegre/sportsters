@@ -1,0 +1,3 @@
+class SportstersController < ApplicationController
+
+end
