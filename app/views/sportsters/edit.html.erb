@@ -1,4 +1,4 @@
-<h1>Add new participant</h1>
+<h1>Update Participant</h1>
 
 <ul>
 <% @sportster.errors.full_messages.each do |message| %>
@@ -23,9 +23,5 @@
 	<%= f.text_field :shirt_size %><br>
 	Short Size<br>
 	<%= f.text_field :short_size %><br>
-	<%= f.submit "Add Participant" %>
+	<%= f.submit "Update Participant" %>
 <% end %>
-
-<%= User.find(session[:user_id]) %>
-
-<%= @user.id %>

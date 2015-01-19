@@ -1,0 +1,13 @@
+<h1>Sportster Participant</h1>
+
+<p><%= link_to "Edit", edit_sportster_path %></p>
+
+<%= image_tag @sportster.profile_image, size: "300" %>
+<p>Name: <%= @sportster.first_name %> <%= @sportster.last_name %></p>
+<p>Age: <%= @sportster.age %></p>
+<p>Birth Date: <%= @sportster.birth_date %></p>
+<p>Division: <%= @sportster.division %></p>
+<p>Shirt Size: <%= @sportster.shirt_size %></p>
+<p>Short Size: <%= @sportster.short_size %></p>
+
+<%= link_to "Back", sportsters_path %>

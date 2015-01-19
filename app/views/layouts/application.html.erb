@@ -7,8 +7,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/sportsters"><%= image_tag "https://cdn3.iconfinder.com/data/icons/school-and-education/36/school_icons_basketball_icon-512.png", size: "25" %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      	<div class="topnav">
+			<% if current_user %>
+				Logged in as <%= current_user.first_name + ' ' + current_user.last_name %> | <%= link_to "Logout", :logout %>
+			<% else %>
+				<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
+			<% end %>
+		</div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="container-fluid">
 <%= yield %>
+</div>
+
+<div id="footer">
+	&copy; All rights reserved. Questions please contact <a href="mailto:sportsters@athletics.org">Sportsters Athletcs</a>.
+</div>
 
 <%= params %>
 </body>

@@ -1,1 +1,56 @@
+<% if current_user %>
 
+<div class="jumbotron">
+	<h1>Welcome to Sportsters Athletics</h1>
+	<p>Practice, practice, practice...do your best!!!</p>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <h2>News</h2>
+		<ul>
+			<li>New this season</li>
+			<li>Recent scores</li>
+			<li>Check out the schedule</li>
+		</ul>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <h2>Profile</h2>
+		<ul>
+			<li>View Profile</li>
+			<li><%= link_to "Add a Participant", new_sportster_path %></li>
+			<li>View Sportster Participant Details
+
+<ul>
+<% @sportsters.each do |sportster| %>
+
+	<li><%= link_to sportster.first_name + ' ' + sportster.last_name, sportster %></li>
+
+<% end %>
+</ul>
+
+			</li>
+		</ul>
+
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <h2>Tools</h2>
+		<ul>
+			<li>Register for the new season</li>
+			<li>Find a sportster</li>
+			<li>View teams and rosters</li>
+		</ul>
+    </div>
+  </div>
+</div>
+<%= @user %>
+<% else %>
+
+<p>Sorry please login to enter the website.</p>
+
+<% end %>
