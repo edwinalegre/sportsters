@@ -1,27 +1,36 @@
 <h1>Update Participant</h1>
 
-<ul>
-<% @sportster.errors.full_messages.each do |message| %>
-<li><%= message %></li>
-<% end %>
-</ul>
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
 
-<%= form_for(@sportster) do |f| %>
-	First Name:<br>
-	<%= f.text_field :first_name %><br>
-	Last Name:<br>
-	<%= f.text_field :last_name %><br>
-	Age:<br>
-	<%= f.text_field :age %><br>
-	Birth Date:<br>
-	<%= f.text_field :birth_date %><br>
-	Profile Image (url)<br>
-	<%= f.text_field :profile_image %><br>
-	Division<br>
-	<%= f.text_field :division %><br>
-	Shirt Size<br>
-	<%= f.text_field :shirt_size %><br>
-	Short Size<br>
-	<%= f.text_field :short_size %><br>
-	<%= f.submit "Update Participant" %>
-<% end %>
+		<ul>
+		<% @sportster.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+		</ul>
+
+		<%= form_for(@sportster) do |f| %>
+			First Name:<br>
+			<%= f.text_field :first_name %><br>
+			Last Name:<br>
+			<%= f.text_field :last_name %><br>
+			Age:<br>
+			<%= f.text_field :age %><br>
+			Birth Date:<br>
+			<%= f.text_field :birth_date %><br>
+			Profile Image (url)<br>
+			<%= f.text_field :profile_image %><br>
+			Division<br>
+			<%= f.text_field :division %><br>
+			Shirt Size<br>
+			<%= f.text_field :shirt_size %><br>
+			Short Size<br>
+			<%= f.text_field :short_size %><br>
+			<%= f.submit "Update Participant" %>
+		<% end %>
+
+		<%= link_to "Back", sportsters_path %>
+    </div>
+  </div>
+</div>
