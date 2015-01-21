@@ -2,11 +2,12 @@ class SportstersController < ApplicationController
 	
 	def index
 		if session[:user_id]
-		@user = User.find(session[:user_id])
-		@sportsters = @user.sportsters
-		@profile = @user.profile
+			@user = User.find(session[:user_id])
+			@sportsters = @user.sportsters
+			@profile = @user.profile
+		else
+			redirect_to root_path
 		end
-		redirect_to root_path
 	end
 
 	def show
