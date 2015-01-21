@@ -25,4 +25,14 @@ class ProfilesController < ApplicationController
 	def edit
 		@profile = Profile.find(params[:id])
 	end
+
+	def update
+		@profile = Profile.find(params[:id])
+
+		if @profile.update(params.require(:profile).permit(:phone, :mobile_phone, :alternate_email, :address1, :address2, :city, :state, :zip, :country))
+			redirect_to profile_path
+		else
+			render :edit
+		end
+	end
 end
