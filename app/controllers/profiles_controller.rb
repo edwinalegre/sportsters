@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 		@profile.save
 
 		if @profile.save
-			redirect_to sportsters_path
+			redirect_to profile_path(@profile)
 		else
 			render :new
 		end

@@ -13,25 +13,25 @@
 		</ul>
 
 		<%= form_for(@profile) do |f| %>
-		Phone:<br>
+		<%= f.label :name, "Phone:" %><br>
 		<%= f.text_field :phone %><br>
-		Mobile Phone:<br>
+		<%= f.label :name, "Mobile Phone:" %><br>
 		<%= f.text_field :mobile_phone %><br>
-		Alternate Email:<br>
+		<%= f.label :name, "Alternate Email:" %><br>
 		<%= f.text_field :alternate_email %><br>
-		Address 1:<br>
+		<%= f.label :name, "Address 1:" %><br>
 		<%= f.text_field :address1 %><br>
-		Address 2:<br>
+		<%= f.label :name, "Address 2:" %><br>
 		<%= f.text_field :address2 %><br>
-		City:<br>
+		<%= f.label :name, "City:" %><br>
 		<%= f.text_field :city %><br>
-		State:<br>
+		<%= f.label :name, "State:" %><br>
 		<%= f.text_field :state %><br>
-		Zip:<br>
+		<%= f.label :name, "Zip:" %><br>
 		<%= f.text_field :zip %><br>
-		Country:<br>
+		<%= f.label :name, "Country:" %><br>
 		<%= f.text_field :country %><br>
-			<%= f.submit "Update Profile" %>
+		<%= f.submit "Update Profile" %>
 		<% end %>
 
 		<%= link_to "Back", profile_path %>
@@ -39,4 +39,58 @@
   	</div>
 	<div class="col-sm-3 col-md-3">
 	</div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        
+		<ul>
+		<% @profile.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+		</ul>
+
+		<%= form_for(@profile) do |f| %>
+		<%= f.label :name, "Phone:" %><br>
+		<%= f.text_field :phone %><br>
+		<%= f.label :name, "Mobile Phone:" %><br>
+		<%= f.text_field :mobile_phone %><br>
+		<%= f.label :name, "Alternate Email:" %><br>
+		<%= f.text_field :alternate_email %><br>
+		<%= f.label :name, "Address 1:" %><br>
+		<%= f.text_field :address1 %><br>
+		<%= f.label :name, "Address 2:" %><br>
+		<%= f.text_field :address2 %><br>
+		<%= f.label :name, "City:" %><br>
+		<%= f.text_field :city %><br>
+		<%= f.label :name, "State:" %><br>
+		<%= f.text_field :state %><br>
+		<%= f.label :name, "Zip:" %><br>
+		<%= f.text_field :zip %><br>
+		<%= f.label :name, "Country:" %><br>
+		<%= f.text_field :country %><br>
+		<%= f.submit "Update Profile" %>
+		<% end %>
+
+		<%= link_to "Back", profile_path %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

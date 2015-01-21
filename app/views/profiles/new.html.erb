@@ -1,37 +1,69 @@
-<h1>Add Profile</h1>
+<div class="container">
+	<div class="page-header">
+		<h2>User Profile</h2>
+	</div>
+</div>
 
 <div class="row">
-  <div class="col-sm-6 col-md-6">
-    <div class="thumbnail">
-		<ul>
-		<% @profile.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-		<% end %>
-		</ul>
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+			<h3>Contact Information</h3>
+			<p>Please add your profile details and contact information.</p>
 
-		<%= form_for(@profile) do |f| %>
-			Phone:<br>
-			<%= f.text_field :phone %><br>
-			Mobile Phone:<br>
-			<%= f.text_field :mobile_phone %><br>
-			Alternate Email:<br>
-			<%= f.text_field :alternate_email %><br>
-			Address 1:<br>
-			<%= f.text_field :address1 %><br>
-			Address 2:<br>
-			<%= f.text_field :address2 %><br>
-			City:<br>
-			<%= f.text_field :city %><br>
-			State:<br>
-			<%= f.text_field :state %><br>
-			Zip:<br>
-			<%= f.text_field :zip %><br>
-			Country:<br>
-			<%= f.text_field :country %><br>
-			<%= f.submit "Add Profile" %>
-		<% end %>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Profile</button>
+			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
 
-		<%= link_to "Back", sportsters_path %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
+      </div>
+			<%= form_for(@profile) do |f| %>
+     		 <div class="modal-body">
+				<ul>
+				<% @profile.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+				</ul>
+
+				<%= f.label :name, "Phone:" %><br>
+				<%= f.text_field :phone %><br>
+				<%= f.label :name, "Mobile Phone:" %><br>
+				<%= f.text_field :mobile_phone %><br>
+				<%= f.label :name, "Alternate Email:" %><br>
+				<%= f.text_field :alternate_email %><br>
+				<%= f.label :name, "Address 1:" %><br>
+				<%= f.text_field :address1 %><br>
+				<%= f.label :name, "Address 2:" %><br>
+				<%= f.text_field :address2 %><br>
+				<%= f.label :name, "City:" %><br>
+				<%= f.text_field :city %><br>
+				<%= f.label :name, "State:" %><br>
+				<%= f.text_field :state %><br>
+				<%= f.label :name, "Zip:" %><br>
+				<%= f.text_field :zip %><br>
+				<%= f.label :name, "Country:" %><br>
+				<%= f.text_field :country %><br>
+				
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add Profile", class: "btn btn-default" %>
+	      </div>
+		<% end %>
     </div>
   </div>
 </div>
