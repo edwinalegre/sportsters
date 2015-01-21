@@ -3,6 +3,7 @@ class SportstersController < ApplicationController
 	def index
 		@user = User.find(session[:user_id])
 		@sportsters = @user.sportsters
+		@profile = @user.profile
 	end
 
 	def show
@@ -43,5 +44,10 @@ class SportstersController < ApplicationController
 	end
 
 	def destroy
+		@sportster = Sportster.find(params[:id])
+    
+    	@sportster.destroy
+    
+    	redirect_to sportsters_path
 	end
 end

@@ -6,7 +6,7 @@
 	<div class="col-sm-6 col-md-6">
 		<div class="thumbnail">
 			<p><%= link_to "Edit", edit_sportster_path %></p>
-
+			<p><%= link_to 'Delete', @sportster, method: :delete %></p>
 			<h3><%= @sportster.first_name %> <%= @sportster.last_name %></h3>
 			<%= image_tag @sportster.profile_image, size: "300" %>
 			<p>Age: <%= @sportster.age %></p>

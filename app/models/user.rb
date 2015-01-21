@@ -9,6 +9,7 @@ class User
   field :role, type: String
 
   has_many :sportsters
+  has_one :profile
 
   validates :first_name, presence: true
   validates :last_name, presence: true

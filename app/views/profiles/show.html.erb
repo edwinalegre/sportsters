@@ -1,0 +1,24 @@
+<h1>User Profile Details</h1>
+
+<div class="row">
+	<div class="col-sm-3 col-md-3">
+	</div>
+	<div class="col-sm-6 col-md-6">
+		<div class="thumbnail">
+			<p><%= link_to "Edit", edit_profile_path %></p>
+			<p>Phone: <%= @profile.phone %></p>
+			<p>Mobile Phone: <%= @profile.mobile_phone %></p>
+			<p>Address:<br>
+				<%= @profile.address1 %><br>
+				<%= @profile.address2 %><br>
+				<%= @profile.city %>, <%= @profile.state %> <%= @profile.zip %><br>
+				<%= @profile.country %></p>
+				</p>
+
+			<%= link_to "Back", sportsters_path %>
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-3">
+	</div>
+</div>
+

@@ -20,17 +20,21 @@
     <div class="thumbnail">
       <h2>Profile</h2>
 		<ul>
-			<li>View Profile</li>
+
+			<% if @profile == nil %>
+				<li><%= link_to "Add Profile Details", new_profile_path %></li>
+			<% else %>
+				<li><%= link_to "Edit Profile Details", "/profiles/" + @profile.id %></li>
+			<% end %>
+
 			<li><%= link_to "Add a Participant", new_sportster_path %></li>
 			<li>View Sportster Participant Details
 
-<ul>
-<% @sportsters.each do |sportster| %>
-
-	<li><%= link_to sportster.first_name + ' ' + sportster.last_name, sportster %></li>
-
-<% end %>
-</ul>
+				<ul>
+				<% @sportsters.each do |sportster| %>
+					<li><%= link_to sportster.first_name + " " + sportster.last_name, sportster %></li>
+				<% end %>
+				</ul>
 
 			</li>
 		</ul>

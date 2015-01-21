@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :sportsters
+  resources :profiles
 
 end
