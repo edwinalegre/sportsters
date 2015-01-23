@@ -1,35 +1,112 @@
-<h1>Add new participant</h1>
+<div class="container">
+	<div class="well">
+		<h2>Add New Participant</h2>
+	</div>
+</div>
 
 <div class="row">
-  <div class="col-sm-6 col-md-6">
-    <div class="thumbnail">
-		<ul>
-		<% @sportster.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-		<% end %>
-		</ul>
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+			<h3>Add Participant</h3>
+			<p>Please add your Sportster participants</p>
 
-		<%= form_for(@sportster) do |f| %>
-			First Name:<br>
-			<%= f.text_field :first_name %><br>
-			Last Name:<br>
-			<%= f.text_field :last_name %><br>
-			Age:<br>
-			<%= f.text_field :age %><br>
-			Birth Date:<br>
-			<%= f.text_field :birth_date %><br>
-			Profile Image (url)<br>
-			<%= f.text_field :profile_image %><br>
-			Division<br>
-			<%= f.text_field :division %><br>
-			Shirt Size<br>
-			<%= f.text_field :shirt_size %><br>
-			Short Size<br>
-			<%= f.text_field :short_size %><br>
-			<%= f.submit "Add Participant" %>
-		<% end %>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Add Participant</button>
+			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
 
-		<%= link_to "Back", sportsters_path %>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact Information</h4>
+      </div>
+
+			<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>" role="alert">
+			  <%= value %>
+			</div>
+			<% end %>
+			<%= form_for(@sportster) do |f| %>
+     		 <div class="modal-body">
+				<ul>
+				<% @sportster.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+				</ul>
+				
+				<%= f.label :name, "First Name:" %><br>
+				<%= f.text_field :first_name %><br>
+				<%= f.label :name, "Last Name:" %><br>
+				<%= f.text_field :last_name %><br>
+				<%= f.label :name, "Age:" %><br>
+				<%= f.text_field :age %><br>
+				<%= f.label :name, "Birth Date:" %><br>
+				<%= f.text_field :birth_date %><br>
+				<%= f.label :name, "Profile Image (url)" %><br>
+				<%= f.text_field :profile_image %><br>
+				<%= f.label :name, "Division" %><br>
+				<%= f.select(:division) do %>
+				<%= content_tag(:option, @sportster[:division], value: @sportster[:division]) %>
+				<% [
+				      ['Pee Wee', 'Pee Wee'],
+				      ['Minor I', 'Minor I'],
+				      ['Minor II', 'Minor II'],
+				      ['Majors', 'Majors'],
+				      ['Girls I', 'Girls I']
+				].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+				<% end %>
+			<% end %><br>
+			<%= f.label :name, "Shirt Size:" %><br>
+			<%= f.select(:shirt_size) do %>
+				<%= content_tag(:option, @sportster[:shirt_size], value: @sportster[:shirt_size]) %>
+				<% [
+				      ['YXS', 'YXS'],
+				      ['YS', 'YS'],
+				      ['YM', 'YM'],
+				      ['YL', 'YL'],
+				      ['XS', 'XS'],
+				      ['S', 'S'],
+				      ['M', 'M'],
+				      ['L', 'L'],
+				      ['XL', 'XL']
+				].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+				<% end %>
+			<% end %><br>
+			<%= f.label :name, "Short Size:" %><br>
+			<%= f.select(:short_size) do %>
+				<%= content_tag(:option, @sportster[:short_size], value: @sportster[:short_size]) %>
+				<% [
+				      ['YXS', 'YXS'],
+				      ['YS', 'YS'],
+				      ['YM', 'YM'],
+				      ['YL', 'YL'],
+				      ['XS', 'XS'],
+				      ['S', 'S'],
+				      ['M', 'M'],
+				      ['L', 'L'],
+				      ['XL', 'XL']
+				].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+				<% end %>
+			<% end %><br>
+				
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <%= f.submit "Add Participant", class: "btn btn-default" %>
+	      </div>
+		<% end %>
     </div>
   </div>
 </div>

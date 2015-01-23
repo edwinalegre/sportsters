@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :sportsters
   resources :profiles
+  resources :admins
 
 end

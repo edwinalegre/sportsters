@@ -20,4 +20,10 @@
 
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').focus()
-  })
+})
+
+$(document).ready(function() {
+	$('#myModal').modal({
+	  show: true,
+	})
+});

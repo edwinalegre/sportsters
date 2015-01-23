@@ -27,7 +27,8 @@ class SportstersController < ApplicationController
 		@sportster.save
 
 		if @sportster.save
-			redirect_to sportsters_path
+      		flash[:success] = "Participant successfully added!"
+			redirect_to sportster_path(@sportster)
 		else
 			render :new
 		end
@@ -41,6 +42,7 @@ class SportstersController < ApplicationController
 		@sportster = Sportster.find(params[:id])
 
 		if @sportster.update(params.require(:sportster).permit(:first_name, :last_name, :age, :birth_date, :profile_image, :division, :shirt_size, :short_size))
+      		flash[:success] = "Participant successfully saved!"
 			redirect_to sportster_path
 		else
 			render :edit

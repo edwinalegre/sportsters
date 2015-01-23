@@ -18,14 +18,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/sportsters"><%= image_tag "https://cdn3.iconfinder.com/data/icons/school-and-education/36/school_icons_basketball_icon-512.png", size: "25" %></a>
+      <a class="navbar-brand" href="/sportsters"><%= image_tag "https://cdn3.iconfinder.com/data/icons/school-and-education/36/school_icons_basketball_icon-512.png", size: "25" %></a><div class="logo-text">Sportsters</div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       	<div class="topnav">
 			<% if current_user %>
-				Logged in as <%= current_user.first_name + ' ' + current_user.last_name %> | <%= link_to "Logout", :logout %>
+				Logged in as <%= current_user.first_name + ' ' + current_user.last_name %> <% if current_user.role == 'admin' %>| <%= link_to "Admin Login", admins_path %> <% end %> | <%= link_to "Logout", :logout %>
 			<% else %>
 				<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
 			<% end %>
@@ -37,7 +37,16 @@
 
 
 <div class="container-fluid">
-<%= yield %>
+
+
+ <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>" role="alert">
+      <%= value %>
+    </div>
+  <% end %>
+
+
+  <%= yield %>
 </div>
 
 <div id="footer">
@@ -46,6 +55,7 @@
 
 
 <br><br><br><br><br><br>
-<%= params %>
+<%= params %><br><br>
+<%= params[:state] %>
 </body>
 </html>

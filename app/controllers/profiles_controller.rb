@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
 		@profile.save
 
 		if @profile.save
+      		flash[:success] = "Profile successfully added!"
 			redirect_to profile_path(@profile)
 		else
 			render :new
@@ -30,9 +31,11 @@ class ProfilesController < ApplicationController
 		@profile = Profile.find(params[:id])
 
 		if @profile.update(params.require(:profile).permit(:phone, :mobile_phone, :alternate_email, :address1, :address2, :city, :state, :zip, :country))
+			flash[:success] = "Profile successfully updated!"
 			redirect_to profile_path
 		else
 			render :edit
 		end
 	end
+
 end

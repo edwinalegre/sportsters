@@ -1,11 +1,5 @@
 <h1>Sign Up</h1>
 
-<ul>
-<% @user.errors.full_messages.each do |message| %>
-<li><%= message %></li>
-<% end %>
-</ul>
-
 <%= form_for(@user) do |f| %>
 	First Name:<br>
 	<%= f.text_field :first_name %><br>

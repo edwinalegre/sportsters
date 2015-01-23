@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="page-header">
+	<div class="well">
 		<h2>User Profile</h2>
 	</div>
 </div>
@@ -52,7 +52,65 @@
 				<%= f.label :name, "City:" %><br>
 				<%= f.text_field :city %><br>
 				<%= f.label :name, "State:" %><br>
-				<%= f.text_field :state %><br>
+				<%= f.select(:state) do %>
+				<%= content_tag(:option, '-Select-', value: '') %>
+				  <% [
+				      ['Alabama', 'Alabama'],
+				      ['Alaska', 'Alaska'],
+				      ['Arizona', 'Arizona'],
+				      ['Arkansas', 'Arkansas'],
+				      ['California', 'California'],
+				      ['Colorado', 'Colorado'],
+				      ['Connecticut', 'Connecticut'],
+				      ['Delaware', 'Delaware'],
+				      ['District of Columbia', 'District of Columbia'],
+				      ['Florida', 'Florida'],
+				      ['Georgia', 'Georgia'],
+				      ['Hawaii', 'Hawaii'],
+				      ['Idaho', 'Idaho'],
+				      ['Illinois', 'IL'],
+				      ['Indiana', 'Indiana'],
+				      ['Iowa', 'Iowa'],
+				      ['Kansas', 'Kansas'],
+				      ['Kentucky', 'Kentucky'],
+				      ['Louisiana', 'Louisiana'],
+				      ['Maine', 'Maine'],
+				      ['Maryland', 'Maryland'],
+				      ['Massachusetts', 'Massachusetts'],
+				      ['Michigan', 'Michigan'],
+				      ['Minnesota', 'Minnesota'],
+				      ['Mississippi', 'Mississippi'],
+				      ['Missouri', 'Missouri'],
+				      ['Montana', 'Montana'],
+				      ['Nebraska', 'Nebraska'],
+				      ['Nevada', 'Nevada'],
+				      ['New Hampshire', 'New Hampshire'],
+				      ['New Jersey', 'New Jersey'],
+				      ['New Mexico', 'New Mexico'],
+				      ['New York', 'New York'],
+				      ['North Carolina', 'North Carolina'],
+				      ['North Dakota', 'North Dakota'],
+				      ['Ohio', 'Ohio'],
+				      ['Oklahoma', 'Oklahoma'],
+				      ['Oregon', 'Oregon'],
+				      ['Pennsylvania', 'Pennsylvania'],
+				      ['Puerto Rico', 'Puerto Rico'],
+				      ['Rhode Island', 'Rhode Island'],
+				      ['South Carolina', 'South Carolina'],
+				      ['South Dakota', 'South Dakota'],
+				      ['Tennessee', 'Tennessee'],
+				      ['Texas', 'Texas'],
+				      ['Utah', 'Utah'],
+				      ['Vermont', 'Vermont'],
+				      ['Virginia', 'Virginia'],
+				      ['Washington', 'Washington'],
+				      ['West Virginia', 'West Virginia'],
+				      ['Wisconsin', 'Wisconsin'],
+				      ['Wyoming', 'Wyoming']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
 				<%= f.label :name, "Zip:" %><br>
 				<%= f.text_field :zip %><br>
 				<%= f.label :name, "Country:" %><br>

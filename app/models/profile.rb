@@ -9,5 +9,8 @@ class Profile
   field :state, type: String
   field :zip, type: String
   field :country, type: String
+
   belongs_to :user
+
+  validates :phone, :mobile_phone, :address1, :city, :state, :zip, :country, presence: true
 end

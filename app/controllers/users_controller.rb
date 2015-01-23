@@ -14,8 +14,10 @@ class UsersController < ApplicationController
 		@user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation))
 
 		if @user.save
+      		flash[:success] = "Account successfully created! Please login."
 			redirect_to login_path
 		else
+      		flash.now[:danger] = @user.errors.full_messages.to_sentence
 			render :new
 		end
 	end
