@@ -1,9 +1,97 @@
-<h1>Admin</h1>
+<% if current_user %>
 
+
+
+<div class="row">
+	<div class="container col-md-8 col-md-offset-2">
+		<div class="well">
+			<h2>Admin</h2>
+		</div>
+	</div>
+</div>
 <ul>
 	<li>Admin Access</li>
-	<li>Search Users</li>
-	<li>Search Participants</li>
 	<li>Manage Sports Activities</li>
 	<li>Manage News</li>
 </ul>
+
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+		<h3>Search Users</h3>
+
+		<%= form_tag('/admins', method:"get") do %>
+
+		  <%= select_tag(:field, options_for_select(["first_name","last_name"])) %>
+
+		  Search User name: <%= text_field_tag :search_users %>
+		  <%= submit_tag "Search" %>
+		<% end %><br>
+
+		<table>
+		  <tr>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		  </tr>
+		<% @users.each do |user| %>
+		  <tr>
+		    <td><%= user.first_name %></td>
+		    <td><%= user.last_name %></td>
+		  </tr>
+		<% end %>
+		</table>
+
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+		<h3>Search Sportster Participant</h3>
+
+		<%= form_tag('/admins', method:"get") do %>
+
+		  <%= select_tag(:field, options_for_select(["first_name","last_name","division"])) %>
+
+		  Search Sportster name: <%= text_field_tag :search_sportsters %>
+		  <%= submit_tag "Search" %>
+		<% end %><br>
+
+		<table>
+		  <tr>
+		  	<th>View</th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Division</th>
+		    <th>Age</th>
+		    <th>Shirt Size</th>
+		    <th>Short Size</th>
+		  </tr>
+		<% @sportsters.each do |sportster| %>
+		  <tr>
+		  	<td><%= link_to "View", sportster %></td>
+		    <td><%= sportster.first_name %></td>
+		    <td><%= sportster.last_name %></td>
+		    <td><%= sportster.division %></td>
+		    <td><%= sportster.age %></td>
+		    <td><%= sportster.shirt_size %></td>
+		    <td><%= sportster.short_size %></td>
+		  </tr>
+		<% end %>
+		</table>
+			
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
+<% else %>
+
+<% end %>
