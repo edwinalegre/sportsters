@@ -1,16 +1,30 @@
-<h1>Sign Up</h1>
-
-<%= form_for(@user) do |f| %>
-	First Name:<br>
-	<%= f.text_field :first_name %><br>
-	Last Name:<br>
-	<%= f.text_field :last_name %><br>
-	Email:<br>
-	<%= f.text_field :email %><br>
-	Password:<br>
-	<%= f.password_field :password %><br>
-	Confirm Password:<br>
-	<%= f.password_field :password_confirmation %><br>
-	<%= f.submit "Sign Up" %>
-<% end %>
-
+<div class="row">
+	<div class="container col-md-8 col-md-offset-2">
+		<div class="well">
+			<h2>Sign Up</h2>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+		<%= form_for(@user) do |f| %>
+			<%= f.label :name, "First Name:" %><br>
+			<%= f.text_field :first_name %><br>
+			<%= f.label :name, "Last Name:" %><br>
+			<%= f.text_field :last_name %><br>
+			<%= f.label :name, "Email:" %><br>
+			<%= f.text_field :email %><br>
+			<%= f.label :name, "Password:" %><br>
+			<%= f.password_field :password %><br>
+			<%= f.label :name, "Confirm Password:" %><br>
+			<%= f.password_field :password_confirmation %><br><br>
+			<%= f.submit "Sign Up", class: "btn btn-info" %>
+		<% end %>
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>

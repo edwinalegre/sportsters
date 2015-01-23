@@ -28,6 +28,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Mongo database
 gem 'mongoid', '~> 4.0.0'
 
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
+gem 'fog'
+gem 'mini_magick'
+
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

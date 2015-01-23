@@ -1,9 +1,24 @@
-<h1>Login</h1>
-
-<%= form_for :user, url: '/login' do |f| %>
-	Email:<br />
-	<%= f.text_field :email %><br />
-	Password:<br />
-	<%= f.password_field :password %><br />
-	<%= f.submit "Login" %>
-<% end %>
+<div class="row">
+	<div class="container col-md-8 col-md-offset-2">
+		<div class="well">
+			<h2>Login</h2>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+			<%= form_for :user, url: '/login' do |f| %>
+				<%= f.label :name, "Email:" %><br />
+				<%= f.text_field :email %><br />
+				<%= f.label :name, "Password:" %><br />
+				<%= f.password_field :password %><br /><br>
+				<%= f.submit "Login", class: "btn btn-info" %>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>

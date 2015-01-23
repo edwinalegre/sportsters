@@ -15,3 +15,31 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+h1 {
+	color: #CCCCCC;
+}
+
+h2 {
+	color: #003366;
+}
+
+.jumbotron {
+	background-color: #FFEC94;
+}
+
+.navbar {
+	background-color: #CCCCCC;
+}
+
+.well {
+	background-color: #FFEC94;
+}
+
+.thumbnail {
+	padding: 15px;
+}
+.tagline {
+	color: #003366;
+	font-style: italic;
+}

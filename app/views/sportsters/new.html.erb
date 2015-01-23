@@ -52,7 +52,7 @@
 				<%= f.label :name, "Birth Date:" %><br>
 				<%= f.text_field :birth_date %><br>
 				<%= f.label :name, "Profile Image (url)" %><br>
-				<%= f.text_field :profile_image %><br>
+				<%= f.file_field :profile_image %><br>
 				<%= f.label :name, "Division" %><br>
 				<%= f.select(:division) do %>
 				<%= content_tag(:option, @sportster[:division], value: @sportster[:division]) %>
