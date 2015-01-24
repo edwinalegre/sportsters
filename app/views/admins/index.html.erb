@@ -7,12 +7,15 @@
 		</div>
 	</div>
 </div>
-<ul>
-	<li>Admin Access</li>
-	<li>Manage Sports Activities</li>
-	<li><%= link_to "Manage News", articles_path %></li>
-</ul>
-
+<div class="row">
+	<div class="container col-md-8 col-md-offset-2">
+		<ul class="nav nav-pills">
+		  <li role="presentation" class="active"><%= link_to "Admin Access", articles_path %></li>
+		  <li role="presentation" class="active"><%= link_to "Manage Sports Activities", articles_path %></li>
+		  <li role="presentation" class="active"><%= link_to "Manage News", articles_path %></li>
+		</ul>
+	</div>
+</div><br />
 <div class="row">
 	<div class="col-sm-3 col-md-2">
 	</div>

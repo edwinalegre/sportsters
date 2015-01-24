@@ -11,9 +11,9 @@
       <i class="glyphicon glyphicon-list-alt"></i>
       <h2>News</h2>
 		<ul>
-			<li><%= link_to "New Stories", articles_path %></li>
-			<li><%= link_to "Recent scores", articles_path %></li>
-			<li><%= link_to "Check out the schedule", articles_path %></li>
+			<li><%= link_to "New Stories", articles_path(status: "Publish", category: "News") %></li>
+			<li><%= link_to "Recent scores", articles_path(status: "Publish", category: "Scores")  %></li>
+			<li><%= link_to "Check out the schedule", articles_path(status: "Publish", category: "Schedule")  %></li>
 		</ul>
     </div>
   </div>

@@ -24,12 +24,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       	<div class="topnav">
-			<% if current_user %>
-				Logged in as <%= current_user.first_name + ' ' + current_user.last_name %> <% if current_user.role == 'admin' %>| <%= link_to "Admin Login", admins_path %> <% end %> | <%= link_to "Logout", :logout %>
-			<% else %>
-				<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
-			<% end %>
-		</div>
+    			<% if current_user %>
+    				Logged in as <%= current_user.first_name + ' ' + current_user.last_name %> <% if current_user.role == 'admin' %>| <%= link_to "Admin Login", admins_path %> <% end %> | <%= link_to "Logout", :logout %>
+    			<% else %>
+    				<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
+    			<% end %>
+    		</div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -50,7 +50,7 @@
 </div>
 
 <div id="footer">
-	&copy; All rights reserved. Questions please contact <a href="mailto:sportsters@athletics.org">Sportsters Athletcs</a>.
+	&copy; Sportsters is a non-profit organization. Questions please contact <a href="mailto:sportsters@athletics.org">Sportsters Athletcs</a>.
 </div>
 
 

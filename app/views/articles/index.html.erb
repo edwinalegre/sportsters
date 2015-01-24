@@ -8,7 +8,7 @@
 	</div>
 	<div class="col-sm-6 col-md-8">
 		<div class="thumbnail">
-			<%= link_to "Create New Article", new_article_path, class: "btn btn-default" %><br><br>
+			
 			<ul>
 			<% @articles.each do |article| %>
 
@@ -18,7 +18,11 @@
 			<% end %>
 			</ul>
 			<br>
-			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+			<%= link_to "Back", sportsters_path, class: "btn btn-default" %> 
+			<% if current_user.role == 'admin' %>
+				<%= link_to "Create New Article", new_article_path, class: "btn btn-default" %>
+				<%= link_to "Back to Admin", admins_path, class: "btn btn-default" %>
+			<% end %>
 		</div>
 	</div>
 	<div class="col-sm-3 col-md-2">

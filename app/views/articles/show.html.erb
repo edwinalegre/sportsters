@@ -8,8 +8,27 @@
 			<p><em><%= @article.created_at.strftime("Published Date: %F") %></em></p>
 			<p><%= simple_format(@article.body) %></p>
 
-			<%= link_to 'Delete', @article, method: :delete, class: "btn btn-danger" %> 
 			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+			<% if current_user.role == 'admin' %>
+				<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-info" %> 
+				<%= link_to 'Delete', @article, method: :delete, class: "btn btn-danger" %> 
+				<%= link_to "Back to Admin", admins_path, class: "btn btn-default" %>
+			<% end %><br>
+
+			<div>
+				<h4>Comments</h4>
+
+				<%= form_for [@article, @new_comment] do |f| %>
+					<%= f.hidden_field :commentor, value: (current_user.first_name + ' ' + current_user.last_name) %><br />
+					<%= f.text_area :body, size: "50x3" %><br />
+					<%= f.submit "Add Comment", class: "btn btn-default" %>
+				<% end %>
+				<% @comments.each do |comment| %><hr>
+					<strong><%= comment.commentor %></strong> <em><%= comment.date_published %></em><br>
+					<%= comment.body %>
+				<% end %>
+			</div>
+
 		</div>
 	</div>
 	<div class="col-sm-3 col-md-2">

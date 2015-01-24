@@ -5,6 +5,8 @@ class Article
   field :body, type: String
   field :category, type: String
   field :status, type: String
+  
+  embeds_many :comments
 
   validates :title, :body, :status, :category, presence: true
 

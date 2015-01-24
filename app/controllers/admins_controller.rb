@@ -5,13 +5,13 @@ class AdminsController < ApplicationController
 	   		reg = ".*" + params[:search_sportsters] + ".*"
 	   		@sportsters = Sportster.where(params[:field].to_sym => /#{reg}/i)
 	  	else
-	    	@sportsters = Sportster.none
+	    	@sportsters = Sportster.all.limit(10)
 	    end
 	 	if params[:search_users] && params[:search_users] != ''
 	   		reg = ".*" + params[:search_users] + ".*"
 	   		@users = User.where(params[:field].to_sym => /#{reg}/i)
 	  	else
-	    	@users = User.none
+	    	@users = User.all.limit(10)
 	    end
 	end
 

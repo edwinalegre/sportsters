@@ -20,4 +20,9 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
+
+resources :articles, except: [:edit, :update, :destroy] do
+    resources :comments, only: [:create]
+  end
+
 end
