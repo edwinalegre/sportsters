@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="well">
+		<h2>Create New Article</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+
+			<ul>
+				<% @article.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+
+			<%= form_for(@article) do |f| %>
+
+				<%= f.label :category, "Category:" %><br>
+				<%= f.select(:category) do %>
+				<%= content_tag(:option, '-Select-', value: '') %>
+				  <% [
+				      ['News', 'News'],
+				      ['Scores', 'Scores'],
+				      ['Schedule', 'Schedule']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
+				<%= f.label :status, "Status:" %><br>
+				<%= f.select(:status) do %>
+				<%= content_tag(:option, '-Select-', value: '') %>
+				  <% [
+				      ['Draft', 'Draft'],
+				      ['Publish', 'Publish'],
+				      ['Archive', 'Archive']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
+				<%= f.label "Title:" %><br>
+				<%= f.text_field :title %><br>
+				<%= f.label "Body:" %><br>
+				<%= f.text_area :body, size: "125x20" %><br>
+				<%= f.submit "Edit Article", class: "btn btn-info" %> 
+				<%= f.submit "Save Article", class: "btn btn-success" %> 
+				<%= link_to "Back", admins_path, class: "btn btn-default" %>
+
+			<% end %>
+			
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
+

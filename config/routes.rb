@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   resources :sportsters
   resources :profiles
   resources :admins
+  resources :articles
+
+  resources :users do
+    resources :profiles
+  end
 
 end

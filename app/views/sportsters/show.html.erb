@@ -17,9 +17,14 @@
 			<p>Shirt Size: <%= @sportster.shirt_size %></p>
 			<p>Short Size: <%= @sportster.short_size %></p>
 
-			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
-			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
-			<%= link_to 'Delete', @sportster, method: :delete, class: "btn btn-default" %>
+			<% if current_user.role == 'admin' %>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
+				<%= link_to 'Delete', @sportster, method: :delete, class: "btn btn-default" %> 
+				<%= link_to "Back", admins_path, class: "btn btn-default" %>
+			<% else %>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
+				<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+			<% end %>
 		</div>
 	</div>
 	<div class="col-sm-3 col-md-3">

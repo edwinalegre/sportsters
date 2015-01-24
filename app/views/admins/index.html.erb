@@ -1,7 +1,5 @@
 <% if current_user %>
 
-
-
 <div class="row">
 	<div class="container col-md-8 col-md-offset-2">
 		<div class="well">
@@ -12,7 +10,7 @@
 <ul>
 	<li>Admin Access</li>
 	<li>Manage Sports Activities</li>
-	<li>Manage News</li>
+	<li><%= link_to "Manage News", articles_path %></li>
 </ul>
 
 <div class="row">
@@ -66,7 +64,7 @@
 
 		<table>
 		  <tr>
-		  	<th>View</th>
+		  	<th></th>
 		    <th>First Name</th>
 		    <th>Last Name</th>
 		    <th>Division</th>

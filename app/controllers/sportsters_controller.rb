@@ -54,6 +54,7 @@ class SportstersController < ApplicationController
     
     	@sportster.destroy
     
-    	redirect_to sportsters_path
+      	flash[:danger] = "Participant has been deleted!"
+    	redirect_to admins_path
 	end
 end
