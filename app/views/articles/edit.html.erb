@@ -42,7 +42,7 @@
 				<%= f.label "Title:" %><br>
 				<%= f.text_field :title %><br>
 				<%= f.label "Body:" %><br>
-				<%= f.text_area :body, size: "125x20" %><br>
+				<%= f.text_area :body, class: "form-control", rows: "15" %><br>
 				<%= f.submit "Save Article", class: "btn btn-success" %> 
 				<%= link_to "Back", admins_path, class: "btn btn-default" %>
 
