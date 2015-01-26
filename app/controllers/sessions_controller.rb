@@ -2,12 +2,13 @@ class SessionsController < ApplicationController
 	def new
 	end
 	def create
-		u = User.find_by(email: params[:user][:email])
+		@user = User.find_by(email: params[:user][:email])
 
-		if u && u.authenticate(params[:user][:password])
-			session[:user_id] = u.id.to_s
+		if @user && @user.authenticate(params[:user][:password])
+			session[:user_id] = @user.id.to_s 
 			redirect_to sportsters_path
 		else
+      		flash.now[:danger] = "Please provide a valid email and password!"
 			render :new
 		end
 	end

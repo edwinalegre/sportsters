@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="well">
+		<h2>View All Sports Activities</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+
+		<h3>Sports Activities</h3>
+
+		<% if current_user.role == 'admin' %>
+			<%= link_to "Create New Sport Activity", new_sport_path, class: "btn btn-default" %><br><br>
+
+			<%= form_tag('/sports', method:"get") do %>
+
+			  Search Sports Activities name: 
+			  <%= select_tag(:field, options_for_select(["type","division","status"])) %>
+			  <%= text_field_tag :search_sports %>
+			  <%= submit_tag "Search" %>
+			<% end %><br>
+
+		<% end %>
+
+		<table>
+		  <tr>
+		  	<th></th>
+		    <th>Type</th>
+		    <th>Year</th>
+		    <th>Division</th>
+		    <th>Status</th>
+		  </tr>
+		<% @sports.each do |sport| %>
+		  <tr>
+		  	<td><%= link_to "View", sport %></td>
+		    <td><%= sport.type %></td>
+		    <td><%= sport.year %></td>
+		    <td><%= sport.division %></td>
+		    <td><%= sport.status %></td>
+		  </tr>
+		<% end %>
+
+		</table><br><br>
+
+		<% if current_user.role == 'admin' %>
+			<%= link_to "Back to Admin", admins_path, class: "btn btn-default" %>
+		<% else %>
+			<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
+		<% end %>
+			
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
+
+
+

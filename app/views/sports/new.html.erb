@@ -1,0 +1,85 @@
+<div class="container">
+	<div class="well">
+		<h2>Add New Sport Activity</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3 col-md-2">
+	</div>
+	<div class="col-sm-6 col-md-8">
+		<div class="thumbnail">
+
+			<ul>
+				<% @sport.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+
+			<%= form_for(@sport) do |f| %>
+
+				<%= f.label :year, "Year:" %><br>
+				<%= f.select(:year) do %>
+				<%= content_tag(:option, @sport[:year], value: @sport[:year]) %>
+				  <% [
+				      ['2013', '2013'],
+				      ['2014', '2014'],
+				      ['2015', '2015'],
+				      ['2016', '2016'],
+				      ['2017', '2017'],
+				      ['2018', '2018'],
+				      ['2019', '2019'],
+				      ['2020', '2020'],
+				      ['2021', '2021']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
+				<%= f.label :type, "Sport:" %><br>
+				<%= f.select(:type) do %>
+				<%= content_tag(:option, @sport[:type], value: @sport[:type]) %>
+				  <% [
+				      ['Baseball', 'Baseball'],
+				      ['Basketball', 'Basketball'],
+				      ['Football', 'Football'],
+				      ['Soccer', 'Soccer'],
+				      ['Volleyball', 'Volleyball']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
+				<%= f.label :division, "Division:" %><br>
+				<%= f.select(:division) do %>
+				<%= content_tag(:option, @sport[:division], value: @sport[:division]) %>
+				  <% [
+				      ['Majors', 'Majors'],
+				      ['Minors I', 'Minors I'],
+				      ['Minors II', 'Minors II'],
+				      ['Girls Division', 'Girls Division'],
+				      ['Pee Wee', 'Pee Wee']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br>
+				<%= f.label :status, "Status:" %><br>
+				<%= f.select(:status) do %>
+				<%= content_tag(:option, @sport[:status], value: @sport[:status]) %>
+				  <% [
+				      ['Draft', 'Draft'],
+				      ['Register', 'Register'],
+				      ['Active', 'Active'],
+				      ['Archive', 'Archive']
+				    ].each do |c| -%>
+				    <%= content_tag(:option, c.first, value: c.last) %>
+				  <% end %>
+				<% end %><br><br>
+				<%= f.submit "Save Sport Activity", class: "btn btn-success" %> 
+				<%= link_to "Back", admins_path, class: "btn btn-default" %>
+
+			<% end %>
+			
+		</div>
+	</div>
+	<div class="col-sm-3 col-md-2">
+	</div>
+</div>
+

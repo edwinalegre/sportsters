@@ -10,8 +10,7 @@
 <div class="row">
 	<div class="container col-md-8 col-md-offset-2">
 		<ul class="nav nav-pills">
-		  <li role="presentation" class="active"><%= link_to "Admin Access", articles_path %></li>
-		  <li role="presentation" class="active"><%= link_to "Manage Sports Activities", articles_path %></li>
+		  <li role="presentation" class="active"><%= link_to "Manage Sports Activities", sports_path %></li>
 		  <li role="presentation" class="active"><%= link_to "Manage News", articles_path %></li>
 		</ul>
 	</div>
@@ -63,9 +62,9 @@
 
 		<%= form_tag('/admins', method:"get") do %>
 
-		  <%= select_tag(:field, options_for_select(["first_name","last_name","division"])) %>
-
-		  Search Sportster name: <%= text_field_tag :search_sportsters %>
+		  Search Sportster name: 
+		  <%= select_tag(:field, options_for_select(["first_name","last_name","division"])) %> 
+		  <%= text_field_tag :search_sportsters %>
 		  <%= submit_tag "Search" %>
 		<% end %><br>
 

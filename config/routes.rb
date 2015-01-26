@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   resources :profiles
   resources :admins
   resources :articles
+  resources :sports
 
   resources :users do
     resources :profiles
   end
-
 
 resources :articles, except: [:edit, :update, :destroy] do
     resources :comments, only: [:create]

@@ -5,6 +5,13 @@ class SportstersController < ApplicationController
 			@user = User.find(session[:user_id])
 			@sportsters = @user.sportsters
 			@profile = @user.profile
+
+		 	if params[:search_sportsters] && params[:search_sportsters] != ''
+		   		reg = ".*" + params[:search_sportsters] + ".*"
+		   		@sportsters_search = Sportster.where(params[:field].to_sym => /#{reg}/i)
+		  	else
+		    	@sportsters_search = Sportster.none
+		    end
 		else
 			redirect_to root_path
 		end
@@ -13,6 +20,13 @@ class SportstersController < ApplicationController
 	def show
 		@user = User.find(session[:user_id])
 		@sportster = Sportster.find(params[:id])
+
+	    if params[:status] && params[:division]
+	        @sports = Sport.where(status: params[:status],division: params[:division])
+	    else
+			@sports = Sport.all
+	    end
+
 	end
 
 	def new

@@ -22,10 +22,11 @@
       <i class="glyphicon glyphicon-user"></i>
       <h2>Profile</h2>
 		<ul>
+				<li><%= link_to "View User Details and Password", user_path(@user) %></li>
 			<% if @profile == nil %>
-				<li><%= link_to "Add Profile Details", new_profile_path %></li>
+				<li><%= link_to "Add Contact Details", new_profile_path %></li>
 			<% else %>
-				<li><%= link_to "View Profile Details", "/profiles/" + @profile.id %></li>
+				<li><%= link_to "View Contact Details", profile_path(@profile) %></li>
 			<% end %>
 
 			<li><%= link_to "Add a Participant", new_sportster_path %></li>
@@ -45,15 +46,34 @@
     <div class="thumbnail">
       <i class="glyphicon glyphicon-wrench"></i>
       <h2>Tools</h2>
-		<ul>
-			<li>Register for the new season</li>
-			<li>Find a sportster</li>
-			<li>View teams and rosters</li>
-		</ul>
+
+		<%= form_tag('/sportsters', method:"get") do %>
+
+		  Search Sportster: 
+		  <%= select_tag(:field, options_for_select(["first_name","last_name","division"])) %> <br>
+		  <%= text_field_tag :search_sportsters %>
+		  <%= submit_tag "Search" %>
+		<% end %><br>
+
+		<table>
+		  <tr>
+		  	<th></th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Division</th>
+		  </tr>
+		<% @sportsters_search.each do |sportster| %>
+		  <tr>
+		  	<td><%= link_to "View", sportster %></td>
+		    <td><%= sportster.first_name %></td>
+		    <td><%= sportster.last_name %></td>
+		    <td><%= sportster.division %></td>
+		  </tr>
+		<% end %>
+		</table>
     </div>
   </div>
 </div>
-<%= @user %>
 <% else %>
 
 <p>Sorry please login to enter the website.</p>

@@ -18,11 +18,26 @@
 			<p>Short Size: <%= @sportster.short_size %></p>
 
 			<% if current_user.role == 'admin' %>
+
+					<hr>
+					Available Registrations:
+					<%= link_to "Register", sports_path(status: "Active", division: @sportster.division) %>
+					<hr>
+
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
 				<%= link_to 'Delete', @sportster, method: :delete, class: "btn btn-default" %> 
 				<%= link_to "Back", admins_path, class: "btn btn-default" %>
-			<% else %>
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
+			<% else %>
+				<% if current_user.id == @sportster.user_id %>
+
+					<hr>
+					Available Registrations:
+					<%= link_to "Register", sports_path(status: "Active", division: @sportster.division) %>
+					<hr>
+
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Edit</button>
+				<% end %>
 				<%= link_to "Back", sportsters_path, class: "btn btn-default" %>
 			<% end %>
 		</div>

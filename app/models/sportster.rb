@@ -10,6 +10,7 @@ class Sportster
   mount_uploader :profile_image, SportsterprofileUploader
 
   belongs_to :user
+  has_and_belongs_to_many :sports
 
   validates :first_name, presence: true
   validates :last_name, presence: true
