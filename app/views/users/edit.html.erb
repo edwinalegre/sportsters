@@ -20,7 +20,13 @@
 			<%= f.label :name, "Password:" %><br>
 			<%= f.password_field :password %><br>
 			<%= f.label :name, "Confirm Password:" %><br>
-			<%= f.password_field :password_confirmation %><br><br>
+			<%= f.password_field :password_confirmation %><br>
+
+			<% if current_user.role == 'admin' %>
+				<%= radio_button_tag(:role, "admin") %>
+				<%= label_tag(:role_child, "Admin) %>
+			<% end %>
+			<br><br>
 			<%= f.submit "Update User Detials", class: "btn btn-info" %>
 			<%= link_to "Back", user_path, class: "btn btn-default" %>
 		<% end %>

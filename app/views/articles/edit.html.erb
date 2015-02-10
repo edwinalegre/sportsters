@@ -15,8 +15,8 @@
 				<% end %>
 			</ul>
 
+			<!-- Admin edit form and fields on articles -->
 			<%= form_for(@article) do |f| %>
-
 				<%= f.label :category, "Category:" %><br>
 				<%= f.select(:category) do %>
 				<%= content_tag(:option, @article[:category], value: @article[:category]) %>

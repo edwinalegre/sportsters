@@ -16,12 +16,10 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-
-
+// Modal pop up form for the user edit pages
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').focus()
 })
-
 $(document).ready(function() {
 	$('#myModal').modal({
 	  show: true,

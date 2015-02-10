@@ -3,18 +3,16 @@
 		<h2>Articles</h2>
 	</div>
 </div>
+<!-- Articles list view, users can only see published and selected categories, admin can view all articles -->
 <div class="row">
 	<div class="col-sm-3 col-md-2">
 	</div>
 	<div class="col-sm-6 col-md-8">
 		<div class="thumbnail">
-			
 			<ul>
 			<% @articles.each do |article| %>
-
 				<li><strong><%= article.status %>:</strong> <%= link_to article.title, article %><br>
 				 <%= article.category %> | <em><%= article.date_published %></em></li>
-
 			<% end %>
 			</ul>
 			<br>
@@ -28,4 +26,3 @@
 	<div class="col-sm-3 col-md-2">
 	</div>
 </div>
-

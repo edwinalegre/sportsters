@@ -3,6 +3,7 @@
 		<h2>Create New Article</h2>
 	</div>
 </div>
+<!-- Admin can create a new article and set status of article type and categories -->
 <div class="row">
 	<div class="col-sm-3 col-md-2">
 	</div>
@@ -16,7 +17,6 @@
 			</ul>
 
 			<%= form_for(@article) do |f| %>
-
 				<%= f.label :category, "Category:" %><br>
 				<%= f.select(:category) do %>
 				<%= content_tag(:option, '-Select-', value: '') %>
@@ -45,7 +45,6 @@
 				<%= f.text_area :body, class: "form-control", rows: "15" %><br>
 				<%= f.submit "Save Article", class: "btn btn-success" %> 
 				<% if current_user.role == 'admin' %><%= link_to "Back to Admin", admins_path, class: "btn btn-default" %><% end %>
-
 			<% end %>
 			
 		</div>

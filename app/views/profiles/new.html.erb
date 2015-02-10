@@ -20,10 +20,7 @@
 	</div>
 </div>
 
-
-
-
-<!-- Modal -->
+<!-- New user form fields on a modal pop up form for user profile -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -33,88 +30,88 @@
       </div>
 			<%= form_for(@profile) do |f| %>
      		 <div class="modal-body">
-				<ul>
-				<% @profile.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-				</ul>
+					<ul>
+					<% @profile.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+					</ul>
 
-				<%= f.label :name, "Phone:" %><br>
-				<%= f.text_field :phone %><br>
-				<%= f.label :name, "Mobile Phone:" %><br>
-				<%= f.text_field :mobile_phone %><br>
-				<%= f.label :name, "Alternate Email:" %><br>
-				<%= f.text_field :alternate_email %><br>
-				<%= f.label :name, "Address 1:" %><br>
-				<%= f.text_field :address1 %><br>
-				<%= f.label :name, "Address 2:" %><br>
-				<%= f.text_field :address2 %><br>
-				<%= f.label :name, "City:" %><br>
-				<%= f.text_field :city %><br>
-				<%= f.label :name, "State:" %><br>
-				<%= f.select(:state) do %>
-				<%= content_tag(:option, '-Select-', value: '') %>
-				  <% [
-				      ['Alabama', 'Alabama'],
-				      ['Alaska', 'Alaska'],
-				      ['Arizona', 'Arizona'],
-				      ['Arkansas', 'Arkansas'],
-				      ['California', 'California'],
-				      ['Colorado', 'Colorado'],
-				      ['Connecticut', 'Connecticut'],
-				      ['Delaware', 'Delaware'],
-				      ['District of Columbia', 'District of Columbia'],
-				      ['Florida', 'Florida'],
-				      ['Georgia', 'Georgia'],
-				      ['Hawaii', 'Hawaii'],
-				      ['Idaho', 'Idaho'],
-				      ['Illinois', 'IL'],
-				      ['Indiana', 'Indiana'],
-				      ['Iowa', 'Iowa'],
-				      ['Kansas', 'Kansas'],
-				      ['Kentucky', 'Kentucky'],
-				      ['Louisiana', 'Louisiana'],
-				      ['Maine', 'Maine'],
-				      ['Maryland', 'Maryland'],
-				      ['Massachusetts', 'Massachusetts'],
-				      ['Michigan', 'Michigan'],
-				      ['Minnesota', 'Minnesota'],
-				      ['Mississippi', 'Mississippi'],
-				      ['Missouri', 'Missouri'],
-				      ['Montana', 'Montana'],
-				      ['Nebraska', 'Nebraska'],
-				      ['Nevada', 'Nevada'],
-				      ['New Hampshire', 'New Hampshire'],
-				      ['New Jersey', 'New Jersey'],
-				      ['New Mexico', 'New Mexico'],
-				      ['New York', 'New York'],
-				      ['North Carolina', 'North Carolina'],
-				      ['North Dakota', 'North Dakota'],
-				      ['Ohio', 'Ohio'],
-				      ['Oklahoma', 'Oklahoma'],
-				      ['Oregon', 'Oregon'],
-				      ['Pennsylvania', 'Pennsylvania'],
-				      ['Puerto Rico', 'Puerto Rico'],
-				      ['Rhode Island', 'Rhode Island'],
-				      ['South Carolina', 'South Carolina'],
-				      ['South Dakota', 'South Dakota'],
-				      ['Tennessee', 'Tennessee'],
-				      ['Texas', 'Texas'],
-				      ['Utah', 'Utah'],
-				      ['Vermont', 'Vermont'],
-				      ['Virginia', 'Virginia'],
-				      ['Washington', 'Washington'],
-				      ['West Virginia', 'West Virginia'],
-				      ['Wisconsin', 'Wisconsin'],
-				      ['Wyoming', 'Wyoming']
-				    ].each do |c| -%>
-				    <%= content_tag(:option, c.first, value: c.last) %>
-				  <% end %>
-				<% end %><br>
-				<%= f.label :name, "Zip:" %><br>
-				<%= f.text_field :zip %><br>
-				<%= f.label :name, "Country:" %><br>
-				<%= f.text_field :country %><br>
+					<%= f.label :name, "Phone:" %><br>
+					<%= f.text_field :phone %><br>
+					<%= f.label :name, "Mobile Phone:" %><br>
+					<%= f.text_field :mobile_phone %><br>
+					<%= f.label :name, "Alternate Email:" %><br>
+					<%= f.text_field :alternate_email %><br>
+					<%= f.label :name, "Address 1:" %><br>
+					<%= f.text_field :address1 %><br>
+					<%= f.label :name, "Address 2:" %><br>
+					<%= f.text_field :address2 %><br>
+					<%= f.label :name, "City:" %><br>
+					<%= f.text_field :city %><br>
+					<%= f.label :name, "State:" %><br>
+					<%= f.select(:state) do %>
+					<%= content_tag(:option, '-Select-', value: '') %>
+					  <% [
+					      ['Alabama', 'Alabama'],
+					      ['Alaska', 'Alaska'],
+					      ['Arizona', 'Arizona'],
+					      ['Arkansas', 'Arkansas'],
+					      ['California', 'California'],
+					      ['Colorado', 'Colorado'],
+					      ['Connecticut', 'Connecticut'],
+					      ['Delaware', 'Delaware'],
+					      ['District of Columbia', 'District of Columbia'],
+					      ['Florida', 'Florida'],
+					      ['Georgia', 'Georgia'],
+					      ['Hawaii', 'Hawaii'],
+					      ['Idaho', 'Idaho'],
+					      ['Illinois', 'IL'],
+					      ['Indiana', 'Indiana'],
+					      ['Iowa', 'Iowa'],
+					      ['Kansas', 'Kansas'],
+					      ['Kentucky', 'Kentucky'],
+					      ['Louisiana', 'Louisiana'],
+					      ['Maine', 'Maine'],
+					      ['Maryland', 'Maryland'],
+					      ['Massachusetts', 'Massachusetts'],
+					      ['Michigan', 'Michigan'],
+					      ['Minnesota', 'Minnesota'],
+					      ['Mississippi', 'Mississippi'],
+					      ['Missouri', 'Missouri'],
+					      ['Montana', 'Montana'],
+					      ['Nebraska', 'Nebraska'],
+					      ['Nevada', 'Nevada'],
+					      ['New Hampshire', 'New Hampshire'],
+					      ['New Jersey', 'New Jersey'],
+					      ['New Mexico', 'New Mexico'],
+					      ['New York', 'New York'],
+					      ['North Carolina', 'North Carolina'],
+					      ['North Dakota', 'North Dakota'],
+					      ['Ohio', 'Ohio'],
+					      ['Oklahoma', 'Oklahoma'],
+					      ['Oregon', 'Oregon'],
+					      ['Pennsylvania', 'Pennsylvania'],
+					      ['Puerto Rico', 'Puerto Rico'],
+					      ['Rhode Island', 'Rhode Island'],
+					      ['South Carolina', 'South Carolina'],
+					      ['South Dakota', 'South Dakota'],
+					      ['Tennessee', 'Tennessee'],
+					      ['Texas', 'Texas'],
+					      ['Utah', 'Utah'],
+					      ['Vermont', 'Vermont'],
+					      ['Virginia', 'Virginia'],
+					      ['Washington', 'Washington'],
+					      ['West Virginia', 'West Virginia'],
+					      ['Wisconsin', 'Wisconsin'],
+					      ['Wyoming', 'Wyoming']
+					    ].each do |c| -%>
+					    <%= content_tag(:option, c.first, value: c.last) %>
+					  <% end %>
+					<% end %><br>
+					<%= f.label :name, "Zip:" %><br>
+					<%= f.text_field :zip %><br>
+					<%= f.label :name, "Country:" %><br>
+					<%= f.text_field :country %><br>
 				
 	      </div>
 	      <div class="modal-footer">

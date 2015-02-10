@@ -7,6 +7,7 @@
 		</div>
 	</div>
 </div>
+<!-- Ariticles and Sports management naviation -->
 <div class="row">
 	<div class="container col-md-8 col-md-offset-2">
 		<ul class="nav nav-pills">
@@ -15,17 +16,15 @@
 		</ul>
 	</div>
 </div><br />
+<!-- Admin search fields on users -->
 <div class="row">
 	<div class="col-sm-3 col-md-2">
 	</div>
 	<div class="col-sm-6 col-md-8">
 		<div class="thumbnail">
 		<h3>Search Users</h3>
-
 		<%= form_tag('/admins', method:"get") do %>
-
 		  <%= select_tag(:field, options_for_select(["first_name","last_name"])) %>
-
 		  Search User name: <%= text_field_tag :search_users %>
 		  <%= submit_tag "Search" %>
 		<% end %><br>
@@ -52,16 +51,14 @@
 	<div class="col-sm-3 col-md-2">
 	</div>
 </div>
-
+<!-- Admin search fields on sportster participants -->
 <div class="row">
 	<div class="col-sm-3 col-md-2">
 	</div>
 	<div class="col-sm-6 col-md-8">
 		<div class="thumbnail">
 		<h3>Search Sportster Participant</h3>
-
 		<%= form_tag('/admins', method:"get") do %>
-
 		  Search Sportster name: 
 		  <%= select_tag(:field, options_for_select(["first_name","last_name","division"])) %> 
 		  <%= text_field_tag :search_sportsters %>

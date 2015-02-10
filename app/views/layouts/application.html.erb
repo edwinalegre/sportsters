@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Sportster logo and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -21,7 +21,7 @@
       <a class="navbar-brand" href="/sportsters"><%= image_tag "https://cdn3.iconfinder.com/data/icons/school-and-education/36/school_icons_basketball_icon-512.png", size: "25" %></a><div class="logo-text">Sportsters</div>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Displays the users name and login logout signup and admin login buttons -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       	<div class="topnav">
     			<% if current_user %>
@@ -30,22 +30,23 @@
     				<%= link_to "Login", :login %> | <%= link_to "SignUp", :signup %>
     			<% end %>
     		</div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
+<!-- Displays flashes messages and alerts to users depending on user and admin form actions -->
 <div class="container-fluid">
-
  <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert">
       <%= value %>
     </div>
   <% end %>
 
-
   <%= yield %>
+
 </div>
 
+<!-- Footer details -->
 <div id="footer">
 	&copy; Sportsters is a non-profit organization. Questions please contact <a href="mailto:sportsters@athletics.org">Sportsters Athletcs</a>.
 </div>
